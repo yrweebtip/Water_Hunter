@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: e8dde40d133239c459ccfdf24169b890
+  - enabled: 1
+    path: Assets/Scenes/Crafting.unity
+    guid: cda8ebf4f988486488f9b26eb3684985
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

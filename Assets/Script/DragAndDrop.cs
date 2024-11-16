@@ -1,47 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private bool isDragging = false;
-    private Vector3 initialPosition;
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    private Vector2 originalPosition;
 
-    void Start()
+    // Tambahkan referensi ke Canvas
+    private Canvas canvas;
+
+    private void Awake()
     {
-        // Simpan posisi awal item untuk berjaga-jaga jika item perlu dikembalikan ke posisi awal
-        initialPosition = transform.position;
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        originalPosition = rectTransform.anchoredPosition;
+
+        // Mendapatkan referensi ke Canvas
+        canvas = GetComponentInParent<Canvas>();
     }
 
-    void OnMouseDown()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        // Saat objek diklik, aktifkan mode dragging
-        isDragging = true;
+        canvasGroup.alpha = 0.6f; // Membuat objek lebih transparan saat diseret
+        canvasGroup.blocksRaycasts = false; // Mematikan raycast agar objek bisa dilepas
     }
 
-    void OnMouseUp()
+    public void OnDrag(PointerEventData eventData)
     {
-        // Saat mouse dilepas, hentikan dragging
-        isDragging = false;
+        // Memindahkan objek mengikuti gerakan mouse
+        // Gunakan canvas.scaleFactor untuk memperhitungkan skala Canvas
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
-    void Update()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        if (isDragging)
-        {
-            // Mengambil posisi mouse di layar
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z; // Ambil z-position di world
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
 
-            // Konversi posisi mouse di layar ke posisi world
-            Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            transform.position = objPosition;
-        }
-    }
-
-    // Jika diperlukan, Anda bisa menambahkan logika untuk mengembalikan item ke posisi awal jika tidak ditempatkan di posisi yang benar
-    public void ResetPosition()
-    {
-        transform.position = initialPosition;
+        // Kembalikan ke posisi awal jika tidak dilepas di area yang benar
+        rectTransform.anchoredPosition = originalPosition;
     }
 }
