@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tamplian Awal Scene.unity
+    guid: ebd3682403ba4a1498718f1e5a5c190f
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: e8dde40d133239c459ccfdf24169b890
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
