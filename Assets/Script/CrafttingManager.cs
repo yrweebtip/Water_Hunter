@@ -13,9 +13,30 @@ public class CrafttingManager : MonoBehaviour
     public string[] recipes;
     public Item[] reciperesult;
     public Slot resultslot;
+    private void Start()
+    {
+        itemList = new List<Item>(craftingSlots.Length);
+        for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            itemList.Add(null); // Pastikan semua elemen null di awal
+        }
+
+        foreach (Slot slot in craftingSlots)
+        {
+            slot.item = null;
+            slot.gameObject.SetActive(false);
+        }
+
+        resultslot.item = null;
+        resultslot.gameObject.SetActive(false);
+    }
+
+
 
     private void Update()
     {
+        
+
         if (Input.GetMouseButtonUp(0))
         {
             if (currentitem != null)
@@ -59,32 +80,37 @@ public class CrafttingManager : MonoBehaviour
     {
         resultslot.gameObject.SetActive(false);
         resultslot.item = null;
+
+        // Gabungkan semua item dari slot menjadi satu string untuk dibandingkan dengan resep
         string currentRecipeString = "";
         foreach (Item item in itemList)
         {
-            if (item != null)
-            {
-                currentRecipeString += item.itemName;
-            }
-            else
-            {
-                currentRecipeString += "null";
-            }
+            currentRecipeString += item != null ? item.itemName : "null";
         }
+
+        // Periksa apakah string ini cocok dengan salah satu resep
         for (int i = 0; i < recipes.Length; i++)
         {
-            resultslot.gameObject.gameObject.SetActive(true);
-            resultslot.GetComponent<Image>().sprite = reciperesult[i].GetComponent<Image>().sprite;
-            resultslot.item = reciperesult[i];
+            if (currentRecipeString == recipes[i])
+            {
+                // Jika cocok, aktifkan slot hasil dan tambahkan item hasil
+                resultslot.gameObject.SetActive(true);
+                resultslot.GetComponent<Image>().sprite = reciperesult[i].GetComponent<Image>().sprite;
+                resultslot.item = reciperesult[i];
+                return; // Keluar dari loop jika ada kecocokan
+            }
         }
     }
 
-    public void OnCkickSlot(Slot slot)
+
+  
+   public void OnCkickSlot(Slot slot)
     {
         slot.item = null;
         itemList[slot.Index] = null;
+        slot.GetComponent<Image>().sprite = null; // Hapus sprite
         slot.gameObject.SetActive(false);
-        CheckForCreatedRecipes();   
+        CheckForCreatedRecipes();
     }
 
 
