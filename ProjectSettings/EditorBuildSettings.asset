@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tamplian Awal Scene.unity
+    path: Assets/Scenes/Tampilan Awal Scene.unity
     guid: ebd3682403ba4a1498718f1e5a5c190f
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
