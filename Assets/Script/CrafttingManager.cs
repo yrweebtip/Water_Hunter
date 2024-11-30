@@ -15,6 +15,7 @@ public class CrafttingManager : MonoBehaviour
     public Item[] reciperesult;
     public Slot resultslot;
     public Button backButton;
+    
     private void Start()
     {
         backButton.gameObject.SetActive(false);
@@ -102,6 +103,8 @@ public class CrafttingManager : MonoBehaviour
                 resultslot.GetComponent<Image>().sprite = reciperesult[i].GetComponent<Image>().sprite;
                 resultslot.item = reciperesult[i];
                 backButton.gameObject.SetActive(true);
+                PlayerPrefs.SetInt("CraftingComplete", 1);
+                PlayerPrefs.Save();
                 return; // Keluar dari loop jika ada kecocokan
 
             }
@@ -109,7 +112,9 @@ public class CrafttingManager : MonoBehaviour
     }
     public void OnClickBackButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        PlayerPrefs.SetInt("CraftingComplete", 1); // Simpan status selesai crafting
+        PlayerPrefs.Save(); // Pastikan data tersimpan
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene 1"); // Pindah ke GameScene
     }
 
 
