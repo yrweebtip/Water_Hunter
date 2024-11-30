@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 144067687}
   m_Layer: 0
   m_Name: botolfiltrasi
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,12 +153,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.9748704
-  m_Center: {x: -0.47622275, y: 0, z: -0.998646}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &144067688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 144067686}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.07, y: 0.38, z: 4.09}
+  m_LocalPosition: {x: -1.07, y: 0.8, z: 4.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -537,10 +537,11 @@ GameObject:
   - component: {fileID: 1081010666}
   - component: {fileID: 1081010665}
   - component: {fileID: 1081010664}
-  - component: {fileID: 1081010668}
+  - component: {fileID: 1081010669}
+  - component: {fileID: 1081010670}
   m_Layer: 0
   m_Name: air
-  m_TagString: Untagged
+  m_TagString: water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,8 +565,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.065993, z: 1.0175948}
+  m_Center: {x: 0, y: 0.032996435, z: -0.008797421}
 --- !u!23 &1081010665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -628,13 +629,13 @@ Transform:
   m_GameObject: {fileID: 1081010663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.07, y: 0.38, z: 14.3}
-  m_LocalScale: {x: 16.635252, y: 1, z: 5.6631794}
+  m_LocalPosition: {x: -2.26, y: 0.38, z: 14.3}
+  m_LocalScale: {x: 16.635252, y: 1.9221, z: 5.6631794}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1081010668
+--- !u!114 &1081010669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -643,9 +644,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081010663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3b8d805fd90414792f85fb38fc6d5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97f7672165a62624a970a0d937e7ae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winImage: {fileID: 1215833829}
+--- !u!54 &1081010670
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081010663}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1186307976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,7 +1817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 1252468291}
-  pickupRange: 5
 --- !u!1 &2129371509
 GameObject:
   m_ObjectHideFlags: 0
