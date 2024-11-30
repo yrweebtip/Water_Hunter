@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,10 @@ public class CrafttingManager : MonoBehaviour
     public string[] recipes;
     public Item[] reciperesult;
     public Slot resultslot;
+    public Button backButton;
     private void Start()
     {
+        backButton.gameObject.SetActive(false);
         itemList = new List<Item>(craftingSlots.Length);
         for (int i = 0; i < craftingSlots.Length; i++)
         {
@@ -80,6 +83,7 @@ public class CrafttingManager : MonoBehaviour
     {
         resultslot.gameObject.SetActive(false);
         resultslot.item = null;
+        backButton.gameObject.SetActive(false);
 
         // Gabungkan semua item dari slot menjadi satu string untuk dibandingkan dengan resep
         string currentRecipeString = "";
@@ -97,14 +101,21 @@ public class CrafttingManager : MonoBehaviour
                 resultslot.gameObject.SetActive(true);
                 resultslot.GetComponent<Image>().sprite = reciperesult[i].GetComponent<Image>().sprite;
                 resultslot.item = reciperesult[i];
+                backButton.gameObject.SetActive(true);
                 return; // Keluar dari loop jika ada kecocokan
+
             }
         }
     }
+    public void OnClickBackButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
 
 
-  
-   public void OnCkickSlot(Slot slot)
+
+
+    public void OnCkickSlot(Slot slot)
     {
         slot.item = null;
         itemList[slot.Index] = null;

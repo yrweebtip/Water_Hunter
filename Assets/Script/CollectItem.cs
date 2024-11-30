@@ -48,6 +48,6 @@ public class CollectItem : MonoBehaviour
                 break;
         }
         Debug.Log($"{itemName} telah diambil!");
-        Destroy(gameObject); // Hapus item setelah diambil
+        Destroy(gameObject); 
     }
 }
