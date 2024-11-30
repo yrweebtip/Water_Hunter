@@ -3,6 +3,7 @@ using UnityEngine;
 public class collisionbotol : MonoBehaviour
 {
    
+
     public GameObject winImage; // Assign the UI Image here in the Inspector.
 
     private void Start()
@@ -15,19 +16,15 @@ public class collisionbotol : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the trigger is the "botol".
-        if (other.gameObject.CompareTag("botol"))
+        if (other.gameObject.CompareTag("Pickup"))
         {
-            // Check if this object has the "Tembok" tag.
-            if (gameObject.CompareTag("water"))
+            // Show the Win Image.
+            if (winImage != null)
             {
-                // Show the Win Image.
-                if (winImage != null)
-                {
-                    winImage.SetActive(true);
-                }
-
-                Debug.Log("You Win!");
+                winImage.SetActive(true);
             }
+
+            Debug.Log("You Win!");
         }
     }
 }
