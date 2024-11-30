@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
     public float movementSpeed = 5.0f;
+    public float sprintSpeed = 8.0f; // Kecepatan saat lari
     public float gravity = -9.81f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -44,9 +45,9 @@ public class PlayerMovement : MonoBehaviour
 
         HandleMovement();
         HandleCrouch();
+        HandleSprint(); // Tambahkan fitur lari
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -70,6 +71,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl)) // Tombol untuk mulai jongkok
         {
             ToggleCrouch();
+        }
+    }
+
+    void HandleSprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching) // Lari jika tombol Shift ditekan dan tidak jongkok
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else if (!isCrouching)
+        {
+            currentSpeed = normalSpeed;
         }
     }
 
