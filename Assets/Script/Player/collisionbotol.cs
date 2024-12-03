@@ -4,27 +4,25 @@ public class collisionbotol : MonoBehaviour
 {
    
 
-    public GameObject winImage; // Assign the UI Image here in the Inspector.
+    public GameObject winImage; 
 
     private void Start()
     {
-        // Ensure the win image is hidden at the start.
+       
         if (winImage != null)
             winImage.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object entering the trigger is the "botol".
+        
         if (other.gameObject.CompareTag("Pickup"))
         {
-            // Show the Win Image.
+            
             if (winImage != null)
             {
                 winImage.SetActive(true);
             }
-
-            Debug.Log("You Win!");
         }
     }
 }

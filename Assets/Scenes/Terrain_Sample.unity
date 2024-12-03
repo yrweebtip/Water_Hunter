@@ -1851,7 +1851,7 @@ MonoBehaviour:
   - {fileID: 653857065}
   - {fileID: 690356647}
   patrolSpeed: 2
-  waitTimeAtPoint: 2
+  waitTimeAtPoint: 1
   player: {fileID: 949514437}
   chaseSpeed: 4
   detectionRange: 5

@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionUI: {fileID: 0}
   interactionRange: 5
+  isPlayerNearby: 0
 --- !u!54 &615409660
 Rigidbody:
   m_ObjectHideFlags: 0

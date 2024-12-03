@@ -28,10 +28,7 @@ public class EnemyAI : MonoBehaviour
         {
             gameOverCanvas.SetActive(false);
         }
-        else
-        {
-            Debug.LogWarning("Game Over Canvas is not assigned in the inspector!");
-        }
+      
     }
 
     private void Update()
@@ -40,12 +37,12 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
-            // Start chasing if player is in range
+            
             isChasing = true;
         }
-        else if (distanceToPlayer > detectionRange * 1.2f) // Add a buffer to avoid constant switching
+        else if (distanceToPlayer > detectionRange * 1.2f) 
         {
-            // Stop chasing if player is out of range
+            
             isChasing = false;
         }
 
@@ -66,14 +63,14 @@ public class EnemyAI : MonoBehaviour
         Transform targetPoint = patrolPoints[currentPatrolIndex];
         float distanceToTarget = Vector3.Distance(transform.position, targetPoint.position);
 
-        // Move towards the current patrol point
+        
         if (distanceToTarget > stoppingDistance)
         {
             MoveTowards(targetPoint.position, patrolSpeed);
         }
         else
         {
-            // Wait at the patrol point before moving to the next one
+            
             waitTimer += Time.deltaTime;
             if (waitTimer >= waitTimeAtPoint)
             {
@@ -95,11 +92,11 @@ public class EnemyAI : MonoBehaviour
 
     private void MoveTowards(Vector3 target, float speed)
     {
-        // Calculate direction and move the enemy
+        
         Vector3 direction = (target - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
-        // Face the target
+        
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
     }
@@ -108,7 +105,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger with Player detected!");
             GameOver();
         }
     }
@@ -119,13 +115,13 @@ public class EnemyAI : MonoBehaviour
         if (gameOverCanvas != null)
         {
             gameOverCanvas.SetActive(true);
-            Time.timeScale = 0f; // Pause the game
+            Time.timeScale = 0f; 
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        // Visualize detection range
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
