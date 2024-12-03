@@ -114,7 +114,7 @@ public class CrafttingManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("CraftingComplete", 1); // Simpan status selesai crafting
         PlayerPrefs.Save(); // Pastikan data tersimpan
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene 1"); // Pindah ke GameScene
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game 2"); // Pindah ke GameScene
     }
 
 
