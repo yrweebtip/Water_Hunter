@@ -5572,7 +5572,7 @@ GameObject:
   - component: {fileID: 1141366377}
   - component: {fileID: 1141366376}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5641,9 +5641,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585928397}
-        m_TargetAssemblyTypeName: LoseMenuButton, Assembly-CSharp
-        m_MethodName: RetryButton
+      - m_Target: {fileID: 1585928399}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: OnClickRetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7276,8 +7276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1585928398}
   - component: {fileID: 1585928397}
+  - component: {fileID: 1585928399}
   m_Layer: 0
-  m_Name: LoseButton
+  m_Name: ButtonFunction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7310,6 +7311,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585928399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585928396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3711026078b08447a9e03889d0def19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593998605 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aad3a02d5b2bd44f882e6c0c971bf72, type: 3}

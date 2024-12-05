@@ -15,6 +15,7 @@ public class CrafttingManager : MonoBehaviour
     public Item[] reciperesult;
     public Slot resultslot;
     public Button backButton;
+    public string sceneName;
     
     private void Start()
     {
@@ -114,7 +115,7 @@ public class CrafttingManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("CraftingComplete", 1); // Simpan status selesai crafting
         PlayerPrefs.Save(); // Pastikan data tersimpan
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game 2"); // Pindah ke GameScene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); // Pindah ke GameScene
     }
 
 
