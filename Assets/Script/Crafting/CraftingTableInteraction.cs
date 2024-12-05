@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class CraftingTableInteraction : MonoBehaviour
 {
-    public GameObject craftingCanvas;
+    
+    public string sceneName;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && AllItemsCollected())
         {
-            SceneManager.LoadScene("Crafting");
+            SceneManager.LoadScene(sceneName);
             //craftingCanvas.SetActive(true);
         }
     }

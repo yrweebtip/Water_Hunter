@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CollectItem : MonoBehaviour
 {
-    public static bool hasKerikil, hasArang, hasSpons, hasIjuk;
+    public static bool hasKerikil, hasArang, hasSpons, hasIjuk, hasBotol;
     private bool isPlayerInRange = false;
     public string itemName;
 
@@ -44,6 +44,9 @@ public class CollectItem : MonoBehaviour
                 hasSpons = true;
                 break;
             case "Ijuk":
+                hasIjuk = true;
+                break;
+            case "Botol":
                 hasIjuk = true;
                 break;
         }

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game 2.unity
     guid: a59df66caf3a0de4694983563d146a10
   - enabled: 1
-    path: Assets/Scenes/Terrain_Sample.unity
+    path: Assets/Scenes/Level 1.unity
     guid: d97f42ac9bc35344bb6158f6275dacb0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

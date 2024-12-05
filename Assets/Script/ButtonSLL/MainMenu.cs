@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public void Playbutton()
     {
         // Ganti "GameScene" dengan nama scene game Anda
-        SceneManager.LoadScene("Terrain_Sample");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void ExitGame()
