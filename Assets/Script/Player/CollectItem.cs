@@ -47,7 +47,7 @@ public class CollectItem : MonoBehaviour
                 hasIjuk = true;
                 break;
             case "Botol":
-                hasIjuk = true;
+                hasBotol = true;
                 break;
         }
         Debug.Log($"{itemName} telah diambil!");
