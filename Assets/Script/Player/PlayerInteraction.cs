@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject interactionPanel; // Referensi ke Panel Interaksi
-    private bool isPanelActive = false; // Status aktif atau tidaknya Panel
+    public GameObject interactionPanel; 
+    private bool isPanelActive = false; 
 
     void Update()
     {
-        // Mengecek jika tombol F ditekan
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // Mengubah status Panel: aktif atau nonaktif
+            
             isPanelActive = !isPanelActive;
-            interactionPanel.SetActive(isPanelActive); // Menampilkan atau menyembunyikan Panel
+            interactionPanel.SetActive(isPanelActive); 
         }
     }
 }
