@@ -22,6 +22,7 @@ public class collisionbotol : MonoBehaviour
             if (winImage != null)
             {
                 winImage.SetActive(true);
+                Time.timeScale = 0f;
             }
         }
     }

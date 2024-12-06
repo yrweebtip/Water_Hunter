@@ -12,8 +12,7 @@ public class EnemyAI : MonoBehaviour
     public float chaseSpeed = 4f;
     public float detectionRange = 10f;
 
-    [Header("Game Over Settings")]
-    public GameObject gameOverCanvas;
+    
 
     public float stoppingDistance = 1f;
 
@@ -24,10 +23,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         // Pastikan Canvas Game Over tidak aktif saat game dimulai
-        if (gameOverCanvas != null)
-        {
-            gameOverCanvas.SetActive(false);
-        }
+       
       
     }
 
@@ -101,23 +97,7 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            GameOver();
-        }
-    }
-
-
-    private void GameOver()
-    {
-        if (gameOverCanvas != null)
-        {
-            gameOverCanvas.SetActive(true);
-            Time.timeScale = 0f; 
-        }
-    }
+   
 
     private void OnDrawGizmosSelected()
     {

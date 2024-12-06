@@ -743,7 +743,7 @@ MonoBehaviour:
   - {fileID: -6452252555418777896, guid: d05fc80ce7b23a248bdb5e6eb227137f, type: 3}
   resultslot: {fileID: 1372578272}
   backButton: {fileID: 879607728}
-  sceneName: Game 2
+  sceneName: Level 1.2
 --- !u!1 &627317794
 GameObject:
   m_ObjectHideFlags: 0
