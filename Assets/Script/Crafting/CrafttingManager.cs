@@ -113,10 +113,19 @@ public class CrafttingManager : MonoBehaviour
     }
     public void OnClickBackButton()
     {
-        PlayerPrefs.SetInt("CraftingComplete", 1); // Simpan status selesai crafting
-        PlayerPrefs.Save(); // Pastikan data tersimpan
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); // Pindah ke GameScene
+        // Ambil nama scene tujuan dari PlayerPrefs
+        string nextScene = PlayerPrefs.GetString("NextScene", "");
+
+        if (!string.IsNullOrEmpty(nextScene))
+        {
+            SceneManager.LoadScene(nextScene); // Pindah ke scene tujuan
+        }
+        else
+        {
+            Debug.LogError("NextScene tidak ditemukan!"); // Debug jika PlayerPrefs kosong
+        }
     }
+
 
 
 

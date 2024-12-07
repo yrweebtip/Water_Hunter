@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Kerikil
-  - Ijuk
-  - Spons
-  - Arang
   - Pickup
   - water
-  - botol
+  - botol filtrasi
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class MenuButton : MonoBehaviour
     public void NextLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
   

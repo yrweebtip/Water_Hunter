@@ -1829,7 +1829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401bd4dc8c0108b4182185c41408d7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftingCanvas: {fileID: 0}
+  craftingSceneName: 
+  afterscene1: Scene1.2
+  afterscene2: Scene2.2
 --- !u!64 &2003889151
 MeshCollider:
   m_ObjectHideFlags: 0
