@@ -44,5 +44,30 @@ public class CraftingTableInteraction : MonoBehaviour
     {
         return CollectItem.hasKerikil && CollectItem.hasArang && CollectItem.hasSpons && CollectItem.hasIjuk && CollectItem.hasBotol;
     }
+    public static void ResetCollectedItems()
+    {
+        CollectItem.hasKerikil = false;
+        CollectItem.hasArang = false;
+        CollectItem.hasSpons = false;
+        CollectItem.hasIjuk = false;
+        CollectItem.hasBotol = false;
+    }
+
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       
+        ResetCollectedItems();
+    }
 }
 
