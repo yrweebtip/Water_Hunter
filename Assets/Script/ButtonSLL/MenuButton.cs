@@ -23,4 +23,6 @@ public class MenuButton : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
         Time.timeScale = 1f;
     }
+
+  
 }
