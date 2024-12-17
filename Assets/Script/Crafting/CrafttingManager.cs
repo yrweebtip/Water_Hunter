@@ -23,7 +23,7 @@ public class CrafttingManager : MonoBehaviour
         itemList = new List<Item>(craftingSlots.Length);
         for (int i = 0; i < craftingSlots.Length; i++)
         {
-            itemList.Add(null); // Pastikan semua elemen null di awal
+            itemList.Add(null); 
         }
 
         foreach (Slot slot in craftingSlots)
@@ -87,26 +87,26 @@ public class CrafttingManager : MonoBehaviour
         resultslot.item = null;
         backButton.gameObject.SetActive(false);
 
-        // Gabungkan semua item dari slot menjadi satu string untuk dibandingkan dengan resep
+        
         string currentRecipeString = "";
         foreach (Item item in itemList)
         {
             currentRecipeString += item != null ? item.itemName : "null";
         }
 
-        // Periksa apakah string ini cocok dengan salah satu resep
+        
         for (int i = 0; i < recipes.Length; i++)
         {
             if (currentRecipeString == recipes[i])
             {
-                // Jika cocok, aktifkan slot hasil dan tambahkan item hasil
+                
                 resultslot.gameObject.SetActive(true);
                 resultslot.GetComponent<Image>().sprite = reciperesult[i].GetComponent<Image>().sprite;
                 resultslot.item = reciperesult[i];
                 backButton.gameObject.SetActive(true);
                 PlayerPrefs.SetInt("CraftingComplete", 1);
                 PlayerPrefs.Save();
-                return; // Keluar dari loop jika ada kecocokan
+                return; 
 
             }
         }
@@ -118,12 +118,9 @@ public class CrafttingManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(nextScene))
         {
-            SceneManager.LoadScene(nextScene); // Pindah ke scene tujuan
+            SceneManager.LoadScene(nextScene); 
         }
-        else
-        {
-            Debug.LogError("NextScene tidak ditemukan!"); // Debug jika PlayerPrefs kosong
-        }
+       
     }
 
 
@@ -134,7 +131,7 @@ public class CrafttingManager : MonoBehaviour
     {
         slot.item = null;
         itemList[slot.Index] = null;
-        slot.GetComponent<Image>().sprite = null; // Hapus sprite
+        slot.GetComponent<Image>().sprite = null; 
         slot.gameObject.SetActive(false);
         CheckForCreatedRecipes();
     }

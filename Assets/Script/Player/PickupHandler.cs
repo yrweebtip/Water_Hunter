@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PickupHandler : MonoBehaviour
 {
-    public Transform holdPoint; // Titik tempat item dipegang
-    private GameObject heldItem; // Referensi ke item yang sedang dipegang
+    public Transform holdPoint; 
+    private GameObject heldItem; 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Tombol pickup/interact
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
-            if (heldItem == null) // Jika tidak ada item yang dipegang
+            if (heldItem == null) 
             {
                 TryPickup();
             }
-            else // Jika ada item yang dipegang
+            else 
             {
                 DropItem();
             }
@@ -24,12 +24,12 @@ public class PickupHandler : MonoBehaviour
 
     private void TryPickup()
     {
-        float pickupRange = 2.0f; // Jarak maksimal untuk mengambil item
+        float pickupRange = 2.0f; 
         Collider[] colliders = Physics.OverlapSphere(transform.position, pickupRange);
 
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Pickup")) // Pastikan item memiliki tag "Pickup"
+            if (collider.CompareTag("Pickup")) 
             {
                 PickupItem(collider.gameObject);
                 return;
@@ -41,26 +41,26 @@ public class PickupHandler : MonoBehaviour
     private void PickupItem(GameObject item)
     {
         heldItem = item;
-        heldItem.transform.SetParent(holdPoint); // Tetapkan posisi item ke HoldPoint
-        heldItem.transform.localPosition = Vector3.zero; // Reset posisi lokal item
-        heldItem.transform.localRotation = Quaternion.identity; // Reset rotasi lokal item
+        heldItem.transform.SetParent(holdPoint); 
+        heldItem.transform.localPosition = Vector3.zero; 
+        heldItem.transform.localRotation = Quaternion.identity; 
         Rigidbody rb = heldItem.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.isKinematic = true; // Matikan fisika agar item tidak jatuh
+            rb.isKinematic = true;
+            Debug.Log("Item diambil: " + heldItem.name);
         }
-        Debug.Log("Item diambil: " + heldItem.name);
     }
 
     private void DropItem()
     {
         if (heldItem != null)
         {
-            heldItem.transform.SetParent(null); // Lepaskan item dari HoldPoint
+            heldItem.transform.SetParent(null); 
             Rigidbody rb = heldItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = false; // Aktifkan kembali fisika
+                rb.isKinematic = false; 
             }
             Debug.Log("Item dilepaskan: " + heldItem.name);
             heldItem = null;

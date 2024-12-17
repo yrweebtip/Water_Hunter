@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
    
     public void Playbutton()
     {
-        // Ganti "GameScene" dengan nama scene game Anda
+        
         SceneManager.LoadScene("Level 1");
         Time.timeScale = 1f;
     }

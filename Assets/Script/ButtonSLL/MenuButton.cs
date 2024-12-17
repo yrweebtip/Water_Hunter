@@ -18,7 +18,7 @@ public class MenuButton : MonoBehaviour
 
     public void OnClickRetryButton()
     {
-        // Muat ulang scene aktif
+        
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
         Time.timeScale = 1f;

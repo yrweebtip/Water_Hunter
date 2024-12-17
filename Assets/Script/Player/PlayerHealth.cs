@@ -17,9 +17,9 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
-        // Update nilai slider
+        
         healthSlider.UpdateHealth(currentHealth);
-        // Logika yang ingin Anda terapkan ketika pemain terkena damage
+        
 
 
 
@@ -33,9 +33,8 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         gameoverUI.SetActive(true);
-        Time.timeScale = 0f; // Memberhentikan waktu permainan
-                             // Logika yang ingin Anda terapkan ketika pemain mati
+        Time.timeScale = 0f;
+
         Debug.Log("Player has died.");
-        // Contoh: Restart level atau tindakan setelah pemain mati
     }
 }

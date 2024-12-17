@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        // Pastikan Canvas Game Over tidak aktif saat game dimulai
+        
        
       
     }
